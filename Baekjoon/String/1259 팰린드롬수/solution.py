@@ -4,7 +4,8 @@ answer = []
 while True:
     n = input()
     if n == '0': break
-    elif n[0:len(n)//2] == n[:math.ceil(len(n)/2)-1:-1]: #ceil은 3.5 -> 4 위의 숫자로 올려줌
+     #ceil은 3.5 -> 4 위의 숫자로 올려줌
+    elif n[0:len(n)//2] == n[:math.ceil(len(n)/2)-1:-1]:
         answer.append('yes')
     else: answer.append('no')
 
