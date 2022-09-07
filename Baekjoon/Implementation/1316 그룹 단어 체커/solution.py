@@ -14,6 +14,7 @@ for i in range(n):
                 checker = False
                 break
             else: arr.append(words[i][j]) 
+            
     # 그룹단어라면 answer ++
     if checker == True:
         answer += 1
