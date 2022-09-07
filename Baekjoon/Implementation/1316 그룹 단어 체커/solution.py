@@ -13,7 +13,7 @@ for i in range(n):
             if words[i][j-1] != words[i][j] and words[i][j] in arr: # 앞문자와 현재문자가 다르고 철자 배열안에 존재한다면
                 checker = False
                 break
-            else: arr.append(words[i][j]) # 한번도 해당이 안된다면 철자 배열에 넣어주고 그룹단어 True 임
+            else: arr.append(words[i][j]) 
     # 그룹단어라면 answer ++
     if checker == True:
         answer += 1
