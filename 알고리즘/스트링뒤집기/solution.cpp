@@ -1,31 +1,34 @@
 #include <iostream>
 using namespace std;
 
-void stringRv(string s, int k, string str);
+void stringRv(char s[], int k);
 int main()
 {
  int numTestCases;
  scanf("%d", &numTestCases);
  for (int i = 0; i < numTestCases; ++i)
  {
- string s, str;
- int k;
+ char s[100];
+ int k; 
+ int length = 0;
  cin >> s;
- str = "";
- k = s.length();
- stringRv(s, k, str);
+ for ( int j= 0; s[j] != '\0'; j++)
+ {
+    length++;
+ }
+ k = length;
+ stringRv(s, k);
  }
  return 0;
 }
 
-void stringRv(string s, int k, string str)
+void stringRv(char s[], int k)
 {
     if(k == 1){
-        str += s[0];
-        cout << str << endl;
+        cout << s[0] << endl;
     }
     else{
-        str += s[k-1];
-        stringRv(s, k-1, str);
+        cout << s[k-1];
+        stringRv(s, k-1);
     }
 }
