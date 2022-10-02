@@ -1,0 +1,5 @@
+s = input()
+k = input()
+s = ''.join([i for i in s if not i.isdigit()])
+if k in s: print(1)
+else: print(0)
