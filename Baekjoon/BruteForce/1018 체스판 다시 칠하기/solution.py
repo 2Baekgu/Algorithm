@@ -1,41 +1,29 @@
-import copy
 n, m = map(int, input().split())
-
-chess_o=[]
-
-for i in range(n):
-    chess_o.append(list(input()))
-
-min = 999
-for k in range(2):
-    for r in range(m-7):
-        for c in range(n-7):
-            count = 0
-            count_c = 0
-            chess = copy.deepcopy(chess_o)
-            if k == 1:
-                chess[0][0] == "W"
-            for col in range(c, c+8):
-                for row in range(r, r+8):
-                    if row == r and col == c:
-                        continue
-                    elif row == r and col != c:
-                        if chess[col-1][row] == chess[col][row]:
-                            count += 1
-                            if chess[col-1][row] == "B":
-                                chess[col][row] = "W"
-                            else:
-                                chess[col][row] = "B"
-                    else:
-                        if chess[col][row] == chess[col][row-1]:
-                            count +=1
-                            if chess[col][row-1] == "B":
-                                chess[col][row] = "W"
-                            else:
-                                chess[col][row] = "B"
-
-        if count < min:
-            min = count
-
-print(chess)
-print(min)
+board = []
+result = []
+ 
+for _ in range(n):
+    board.append(input())
+ 
+for i in range(n-7):
+    for j in range(m-7):
+        draw1 = 0 #가장 왼쪽 위가 W를 희망할 경우
+        draw2 = 0 # 가장 왼쪽 위가 B를 희망할 경우
+ 
+        for a in range(i, i+8):
+            for b in range(j, j+8):
+                if (a + b) % 2 == 0: 
+                    if board[a][b] != 'B':  #하얀색일경우
+                        draw1 += 1
+                    if board[a][b] != 'W': # 검은색일경우
+                        draw2 += 1
+                else:
+                    if board[a][b] != 'W': #검은색일 경우
+                        draw1 += 1
+                    if board[a][b] != 'B': # 하얀색일 경우
+                        draw2 += 1
+ 
+        result.append(draw1)
+        result.append(draw2)
+ 
+print(min(result))
