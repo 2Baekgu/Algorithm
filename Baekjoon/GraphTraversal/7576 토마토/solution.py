@@ -43,5 +43,4 @@ for i in range(n):
             print(-1)
             sys.exit(0)
 
-print(graph)
 print(d)
