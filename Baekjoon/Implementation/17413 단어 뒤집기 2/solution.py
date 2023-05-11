@@ -20,5 +20,3 @@ for i in range(len(s)):
             word.append(s[i])
 
 for i in word: print(i, end='')
-
-    
